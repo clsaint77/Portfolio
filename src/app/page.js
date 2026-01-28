@@ -5,8 +5,8 @@ import ProjectCard from "@/components/ProjectCard";
 import MouseGlow from "@/components/MouseGlow";
 import CustomCursor from "@/components/CustomCursor";
 import Particles from "@/components/Particles";
-
-
+import Image from "next/image";
+import { Download } from "lucide-react";
 
 
 
@@ -31,8 +31,27 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center text-center"
-        >
+          className="flex flex-col items-center text-center" >
+
+<div className="relative mb-10">
+  {/* Glow */}
+  <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 blur-2xl opacity-60" />
+
+  {/* Moldura */}
+  <div className="relative h-48 w-48 rounded-full p-1 bg-gradient-to-r from-purple-500 to-cyan-400">
+    <div className="h-full w-full rounded-full overflow-hidden bg-black">
+      <Image
+        src="/projects/profile1.jpeg"
+        alt="Athos Clives"
+        width={192}
+        height={192}
+        className="object-cover object-center "
+        priority
+      />
+    </div>
+  </div>
+</div>
+
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
             Athos Clives
           </h1>
@@ -59,6 +78,18 @@ export default function Home() {
               Contact Me
             </a>
           </div>
+
+          <div className="mt-6">
+  <a
+    href="/cv/CV_Athos_Clives.pdf"
+    download
+    className="px-18 py-3 rounded-full font-medium border border-zinc-400 text-zinc-300 hover:bg-white hover:text-black transition"
+  >
+    Download CV
+  </a>
+</div>
+
+
         </motion.div>
       </section>
 
